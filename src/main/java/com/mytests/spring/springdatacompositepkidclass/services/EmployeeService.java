@@ -18,11 +18,16 @@ public class EmployeeService {
         this.employeeRepository = employeeRepository;
     }
 
-    public List<Employee> getAllEmployees(){
+    public List<Employee> collectAllEmployees(){
         return employeeRepository.findAllEmployees();
     }
 
-    public Optional<Employee> findById() {
+    public Optional<Employee> findByHardcodedId() {
         return employeeRepository.findById(new EmployeeId("John","RnD","QA"));
+    }
+
+    public String findEmployeeById(String name, String dep, String position){
+        Optional<Employee> emp = employeeRepository.findById(new EmployeeId(name, dep, position));
+        return emp.isPresent() ? emp.get().toString() : "Employee not found";
     }
 }

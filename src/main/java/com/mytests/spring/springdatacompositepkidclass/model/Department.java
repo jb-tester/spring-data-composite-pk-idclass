@@ -1,6 +1,8 @@
 package com.mytests.spring.springdatacompositepkidclass.model;
 
 import jakarta.persistence.*;
+
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
@@ -16,8 +18,15 @@ public class Department {
     private String location;
     @Column(name = "Empnumber")
     private Integer empNumber;
+
+    /**
+     * mappedBy indicates that the relationship is bidirectional and the owning side
+     * is the 'department' field in Employee entity. @JoinColumn would be used to
+     * specify a foreign key column when the current entity owns the relationship.
+     */
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "department")
-    private Set<Employee> employees;
+    @OrderBy("name ASC")
+    private Set<Employee> employees = new LinkedHashSet<>();
 
     public String getName() {
         return name;

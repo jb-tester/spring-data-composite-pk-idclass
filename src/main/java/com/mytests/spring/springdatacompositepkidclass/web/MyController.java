@@ -5,7 +5,6 @@ import com.mytests.spring.springdatacompositepkidclass.model.Employee;
 import com.mytests.spring.springdatacompositepkidclass.services.DepartmentService;
 import com.mytests.spring.springdatacompositepkidclass.services.EmployeeService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,16 +26,20 @@ public class MyController {
 
     @GetMapping("/allDepartments")
     public ResponseEntity<List<Department>> findAllDepartments() {
-        return ResponseEntity.ok(departmentService.getAllDepartments());
+        return ResponseEntity.ok(departmentService.findAllDepartments());
     }
 
     @GetMapping("/allEmployees")
     public ResponseEntity<List<Employee>> findAllEmployees() {
-        return ResponseEntity.ok(employeeService.getAllEmployees());
+        return ResponseEntity.ok(employeeService.collectAllEmployees());
     }
 
     @GetMapping("/employee")
     public ResponseEntity<String> findEmployeeById() {
-        return ResponseEntity.ok(employeeService.findById().toString());
+        return ResponseEntity.ok(employeeService.findByHardcodedId().toString());
+    }
+    @GetMapping("/employee/{name}-{dep}-{designation}")
+    public ResponseEntity<String> findEmployeeById2(@PathVariable String name, @PathVariable String dep, @PathVariable String designation) {
+        return ResponseEntity.ok(employeeService.findEmployeeById(name,dep,designation));
     }
 }
