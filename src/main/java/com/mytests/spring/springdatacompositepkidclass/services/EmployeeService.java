@@ -32,7 +32,7 @@ public class EmployeeService {
     }
 
     public String findEmployeesByIds() {
-        List<Employee> emps = employeeRepository.findAllById(List.of(new EmployeeId("John","RnD","QA"), new EmployeeId("Paul","RnD","Developer")));
+        List<Employee> emps = (List<Employee>) employeeRepository.findAllById(List.of(new EmployeeId("John","RnD","QA"), new EmployeeId("Paul","RnD","Developer")));
         return emps.toString();
     }
 }

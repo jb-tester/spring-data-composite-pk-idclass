@@ -6,11 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
 
-/**
- * *
- * <p>Created by irina on 3/7/2025.</p>
- * *
- */
+
 public interface DepartmentRepository extends CrudRepository<Department, DepartmentId> {
     Department findByNameAndLocation(String name,String location);
 
