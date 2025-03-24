@@ -1,21 +1,17 @@
-###not present
+###not present employee
 GET http://localhost:8080/employee/Nick-RnD-QA
 
-###
+###all depatments
 GET http://localhost:8080/allDepartments
 
-<> 2025-03-11T154031.200.json
 
-###
+###employee by fixed id
 GET http://localhost:8080/employee
 
-<> 2025-03-11T164909.200.txt
-<> 2025-03-11T164827.200.txt
-<> 2025-03-11T164731.500.json
-<> 2025-03-11T164623.200.txt
-<> 2025-03-11T164257.200.txt
+###employees by fixed ids
+GET http://localhost:8080/employees
 
-###
+###all employees
 GET http://localhost:8080/allEmployees
 
 <> 2025-03-11T164928.200.json

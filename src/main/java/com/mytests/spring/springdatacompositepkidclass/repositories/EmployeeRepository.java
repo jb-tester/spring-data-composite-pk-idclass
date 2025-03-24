@@ -15,4 +15,6 @@ public interface EmployeeRepository extends Repository<Employee, EmployeeId>{
     List<Employee> findAllEmployees();
 
     Optional<Employee> findById(EmployeeId id);
+
+    List<Employee> findAllById(Iterable<EmployeeId> ids);
 }

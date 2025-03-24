@@ -42,4 +42,8 @@ public class MyController {
     public ResponseEntity<String> findEmployeeById2(@PathVariable String name, @PathVariable String dep, @PathVariable String designation) {
         return ResponseEntity.ok(employeeService.findEmployeeById(name,dep,designation));
     }
+    @GetMapping("/employees")
+    public ResponseEntity<String> findEmployeeById3() {
+        return ResponseEntity.ok(employeeService.findEmployeesByIds());
+    }
 }

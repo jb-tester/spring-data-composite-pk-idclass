@@ -30,4 +30,9 @@ public class EmployeeService {
         Optional<Employee> emp = employeeRepository.findById(new EmployeeId(name, dep, position));
         return emp.isPresent() ? emp.get().toString() : "Employee not found";
     }
+
+    public String findEmployeesByIds() {
+        List<Employee> emps = employeeRepository.findAllById(List.of(new EmployeeId("John","RnD","QA"), new EmployeeId("Paul","RnD","Developer")));
+        return emps.toString();
+    }
 }
